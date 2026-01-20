@@ -1,6 +1,8 @@
 # credito-api
 API de API DE CONSULTA DE CRÉDITOS - KAFKA AZURE
 
+Pré Requisitos:
+ Java 21 e Spring Boot 3.5.4
  
 1 - Instalar Docker (se não tiver):
 
