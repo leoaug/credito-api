@@ -1,0 +1,2 @@
+# credito-api
+API de API DE CONSULTA DE CRÉDITOS - KAFKA AZURE
