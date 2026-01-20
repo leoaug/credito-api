@@ -23,23 +23,33 @@ API de API DE CONSULTA DE CRÉDITOS - KAFKA AZURE
 	Como usar Azure Service Bus corretamente
 		🧭 Passo 1 — Criar no Portal Azure
 
-		Portal: https://portal.azure.com
+			Portal: https://portal.azure.com
+	
+			Criar recurso → Service Bus (Barramento de Serviço)
+	
+			Tipo: Standard ou Premium
+	
+			Queue (ex: credito-queue)
 
-		Criar recurso → Service Bus (Barramento de Serviço)
+	    🧭Passo 2 — Obter Connection String
 
-		Tipo: Standard ou Premium
+			Azure Portal →
+			Service Bus → Shared access policies → RootManageSharedAccessKey	
+	
+			Endpoint=sb://xxxx.servicebus.windows.net/;
+			SharedAccessKeyName=RootManageSharedAccessKey;
+			SharedAccessKey=XXXX
 
-		Criar:
+5 - Setar o env.properties da aplicação as seguintes variáveis:
 
-		Namespace
+		AZURE_SERVICEBUS_CONNECTION_STRING=Endpoint=sb://suaNameSpace.servicebus.windows.net/
+		AZURE_SERVICEBUS_QUEUE_NAME=credito-queue
+		
+6 - application.yml setar as configuracoes do BD (username, password e url)
 
-		Queue (ex: credito-queue)
-
-	Passo 2 — Obter Connection String
-
-		Azure Portal →
-		Service Bus → Shared access policies → RootManageSharedAccessKey	
-
-		Endpoint=sb://xxxx.servicebus.windows.net/;
-		SharedAccessKeyName=RootManageSharedAccessKey;
-		SharedAccessKey=XXXX
+	  datasource:
+	    url: jdbc:postgresql://localhost:5432/seuDataBase
+	    username: seuUserName
+	    password: suaSenha
+	    driver-class-name: org.postgresql.Driver
+	
