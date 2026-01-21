@@ -56,11 +56,12 @@ Pré Requisitos:
 		AZURE_SERVICEBUS_CONNECTION_STRING=Endpoint=sb://suaNameSpace.servicebus.windows.net/
 		AZURE_SERVICEBUS_QUEUE_NAME=credito-queue
 		
-6 - application.yml setar as configuracoes do BD (username, password e url)
+6 - application.yml setar as configuracoes do BD (username, password e url) atualizar no docker-compose.yml também
 
 	  datasource:
 	    url: jdbc:postgresql://localhost:5432/seuDataBase
 	    username: seuUserName
 	    password: suaSenha
 	    driver-class-name: org.postgresql.Driver
+
 	
