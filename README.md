@@ -24,6 +24,9 @@ Pré Requisitos:
 2 - Subir o Kafka:
 
 	docker compose -f /caminhoCompletoDaAplicacao/docker/docker-compose.yml up -d
+	ou
+	docker compose up -d (se tiver na pasta docker-compose.yml)
+
 
 3 - Pegue o nome do servico pelo comando:
 
