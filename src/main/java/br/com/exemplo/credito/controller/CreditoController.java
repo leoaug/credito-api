@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.exemplo.credito.domain.Credito;
+import br.com.exemplo.credito.model.Credito;
 import br.com.exemplo.credito.service.CreditoService;
 
 @RestController

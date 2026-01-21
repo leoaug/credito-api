@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 334863333
+      POSTGRES_PASSWORD: suaSenha
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0

@@ -5,27 +5,23 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.exemplo.credito.domain.Credito;
 import br.com.exemplo.credito.messaging.azure.CreditoServiceBusPublisher;
 import br.com.exemplo.credito.messaging.event.ConsultaCreditoEvent;
 import br.com.exemplo.credito.messaging.kafka.CreditoKafkaPublisher;
+import br.com.exemplo.credito.model.Credito;
 import br.com.exemplo.credito.repository.CreditoRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class CreditoService {
 
     private final CreditoRepository repository;
+    
     private final CreditoKafkaPublisher kafka;
-    private final CreditoServiceBusPublisher serviceBus;
-
-    public CreditoService(CreditoRepository repository,
-                          CreditoKafkaPublisher kafka,
-                          CreditoServiceBusPublisher serviceBus) {
-        this.repository = repository;
-        this.kafka = kafka;
-        this.serviceBus = serviceBus;
-    }
-
+    
+    //private final CreditoServiceBusPublisher serviceBus;
+   
     public List<Credito> buscarPorNumeroNfse(String nfse) {
         var result = repository.findByNumeroNfse(nfse);
         publicarEvento("CONSULTA_NFSE", nfse);
@@ -41,7 +37,7 @@ public class CreditoService {
 
     private void publicarEvento(String tipo, String id) {
         var event = new ConsultaCreditoEvent(tipo, id, LocalDateTime.now());
-        kafka.publicarEvento(event);
-        serviceBus.publicarEvento(event);
+        //kafka.publicarEvento(event);
+        //serviceBus.publicarEvento(event);
     }
 }
