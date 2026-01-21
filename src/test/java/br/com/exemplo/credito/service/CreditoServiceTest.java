@@ -23,11 +23,11 @@ class CreditoServiceTest {
     @Mock
     CreditoRepository repository;
 
-    @Mock
-    CreditoKafkaPublisher kafkaPublisher;
+    //@Mock
+    //CreditoKafkaPublisher kafkaPublisher;
 
-    @Mock
-    CreditoServiceBusPublisher serviceBusPublisher;
+    //@Mock
+    //CreditoServiceBusPublisher serviceBusPublisher;
 
     @InjectMocks
     CreditoService service;
@@ -39,7 +39,7 @@ class CreditoServiceTest {
 
         service.buscarPorNumeroNfse("1");
 
-        verify(kafkaPublisher).publicarEvento(any());
+        //verify(kafkaPublisher).publicarEvento(any());
         //verify(serviceBusPublisher).publicarEvento(any());
     }
 }

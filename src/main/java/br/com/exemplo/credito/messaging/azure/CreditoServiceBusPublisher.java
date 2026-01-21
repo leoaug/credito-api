@@ -9,14 +9,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.exemplo.credito.messaging.event.ConsultaCreditoEvent;
 import lombok.RequiredArgsConstructor;
 
-@Component
-@RequiredArgsConstructor
+//@Component
+//@RequiredArgsConstructor
 public class CreditoServiceBusPublisher {
 
-    //private final ServiceBusSenderClient senderClient;
+    private ServiceBusSenderClient senderClient;
     private final ObjectMapper mapper = new ObjectMapper();
 
-    /*
+    
     public void publicarEvento(ConsultaCreditoEvent event) {
         try {
             String payload = mapper.writeValueAsString(event);
@@ -25,5 +25,5 @@ public class CreditoServiceBusPublisher {
             throw new RuntimeException("Erro ao enviar evento para Azure Service Bus", e);
         }
     }
-    */
+    
 }
