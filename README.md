@@ -67,5 +67,8 @@ Pré Requisitos:
 	    username: seuUserName
 	    password: suaSenha
 	    driver-class-name: org.postgresql.Driver
-
+7 - no raiz do projeto, executar para buildar
+    ./mvnw install
+8 -  no raiz do projeto, executar para subir o spring boot
+	./mvnw spring-boot:run
 	
