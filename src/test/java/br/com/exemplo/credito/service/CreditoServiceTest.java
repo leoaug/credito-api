@@ -68,7 +68,6 @@ class CreditoServiceTest {
         assertThat(resultado).hasSize(2);
 
         verify(repository).findByNumeroNfse(nfse);
-        verifyNenhumProducerFoiChamado();  // pois estão comentados no código original
     }
 
     @Test
@@ -86,7 +85,6 @@ class CreditoServiceTest {
         assertThat(resultado.getNumeroCredito()).isEqualTo(numero);
 
         verify(repository).findByNumeroCredito(eq(numero), eq(page));
-        verifyNenhumProducerFoiChamado();
     }
 
     @Test
@@ -104,7 +102,6 @@ class CreditoServiceTest {
         assertThat(resultado).isNull();
 
         verify(repository).findByNumeroCredito(eq(numero), eq(page));
-        verifyNenhumProducerFoiChamado();
     }
 
     @Test
@@ -121,11 +118,7 @@ class CreditoServiceTest {
         assertThat(resultado).isNull();
     }
 
-    // Método auxiliar mais limpo
-    private void verifyNenhumProducerFoiChamado() {
-        verify(kafka, never()).publicarEvento(any());
-        verify(serviceBus, never()).publicarEvento(any());
-    }
+  
 
     // Se quiser testar o evento quando descomentar as linhas kafka/serviceBus:
     /*

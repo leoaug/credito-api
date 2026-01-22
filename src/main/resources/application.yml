@@ -31,8 +31,24 @@ spring:
     consumer:
       group-id: credito-group
       auto-offset-reset: earliest
+      enable-auto-commit: false   # recomendado gerenciar manualmente
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    # listener (container factory padrão)
+    listener:
+      ack-mode: MANUAL_IMMEDIATE                    # ou BATCH quando usar batch
+      # concurrency: 3                            # threads por container
+      # poll-timeout: 3000
+
+    # template (KafkaTemplate)
+    template:
+      default-topic: credito-api
+  logging:
+   level:
+    org.springframework.kafka: INFO
+    org.apache.kafka: WARN
+    com.seuapp: DEBUG  
+                        
   azure:
     servicebus:
       connection-string: ${AZURE_SERVICEBUS_CONNECTION_STRING}
