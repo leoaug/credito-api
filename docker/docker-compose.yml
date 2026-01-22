@@ -1,6 +1,12 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DATA_SOURCE_DB:-postres}
+      POSTGRES_USER: ${DATA_SOURCE_USER_NAME:-postgres}
+      POSTGRES_PASSWORD: ${DATA_SOURCE_PASSWORD:-334863333}
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0   # ou bitnami/zookeeper
     container_name: zookeeper
