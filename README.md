@@ -3,7 +3,7 @@ API de API DE CONSULTA DE CRÉDITOS - KAFKA AZURE
 
 Pré Requisitos:
 - Java 21 e Spring Boot 3.5.4
-- Criar um schema do banco de dados Postgres definido na classe 'CreditoConstants' - no campo public static final String SCHEMA = "credito-schema";
+- Criar um schema do banco de dados Postgres definido na classe 'CreditoConstants' - no campo public static final String SCHEMA = "credito-schema" a tabela ja sera criada na inicialização;
 - Caso queira testar o azure (já com a conta criada) e o kafta , atentar para os seguintes arquivos:
   	1. env.properties as variáveis :
   	   1.1 - AZURE_SERVICEBUS_CONNECTION_STRING=Endpoint=sb://suaNameSpace.servicebus.windows.net/
@@ -67,8 +67,12 @@ Pré Requisitos:
 	    username: seuUserName
 	    password: suaSenha
 	    driver-class-name: org.postgresql.Driver
+		
 7 - no raiz do projeto, executar para buildar
+
     ./mvnw install
+	
 8 -  no raiz do projeto, executar para subir o spring boot
+
 	./mvnw spring-boot:run
 	
