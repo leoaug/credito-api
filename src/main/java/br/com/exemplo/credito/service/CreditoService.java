@@ -7,8 +7,9 @@ import java.util.Optional;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import br.com.exemplo.credito.messaging.azure.CreditoServiceBusProducer;
 import br.com.exemplo.credito.messaging.event.ConsultaCreditoEvent;
-import br.com.exemplo.credito.messaging.kafka.CreditoKafkaPublisher;
+import br.com.exemplo.credito.messaging.kafka.CreditoKafkaProducer;
 import br.com.exemplo.credito.model.Credito;
 import br.com.exemplo.credito.repository.CreditoRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +20,9 @@ public class CreditoService {
 
     private final CreditoRepository repository;
     
-    private final CreditoKafkaPublisher kafka;
+    private final CreditoKafkaProducer kafka;
     
-    //private final CreditoServiceBusPublisher serviceBus;
+    private final CreditoServiceBusProducer serviceBus;
    
     public List<Credito> buscarPorNumeroNfse(String nfse) {
         var result = repository.findByNumeroNfse(nfse);

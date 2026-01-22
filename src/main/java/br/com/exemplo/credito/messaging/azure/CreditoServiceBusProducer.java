@@ -1,6 +1,7 @@
 package br.com.exemplo.credito.messaging.azure;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.azure.messaging.servicebus.ServiceBusMessage;
 import com.azure.messaging.servicebus.ServiceBusSenderClient;
@@ -9,9 +10,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.exemplo.credito.messaging.event.ConsultaCreditoEvent;
 import lombok.RequiredArgsConstructor;
 
-//@Component
-//@RequiredArgsConstructor
-public class CreditoServiceBusPublisher {
+@Service
+@RequiredArgsConstructor
+public class CreditoServiceBusProducer {
 
     private ServiceBusSenderClient senderClient;
     private final ObjectMapper mapper = new ObjectMapper();
