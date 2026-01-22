@@ -61,13 +61,12 @@ Pré Requisitos:
 		AZURE_SERVICEBUS_CONNECTION_STRING=Endpoint=sb://suaNameSpace.servicebus.windows.net/
 		AZURE_SERVICEBUS_QUEUE_NAME=credito-queue
 		
-6 - application.yml setar as configuracoes do BD (username, password e url) atualizar no docker-compose.yml também
+6 - 'application.yml' e no 'docker-compose.yml' setar as configuracoes do BD (url,dataBase, username, password) no 'env.properties' das seguintes variáveis abaixo:
 
-	  datasource:
-	    url: jdbc:postgresql://localhost:5432/seuDataBase
-	    username: seuUserName
-	    password: suaSenha
-	    driver-class-name: org.postgresql.Driver
+	  DATA_SOURCE_URL=jdbc:postgresql://localhost:5432/
+	  DATA_SOURCE_DB=seuDb
+      DATA_SOURCE_USER_NAME=seuUser
+      DATA_SOURCE_PASSWORD=suaSenha
 		
 7 - no raiz do projeto, executar para buildar
 
