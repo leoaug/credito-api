@@ -10,8 +10,8 @@ Pré Requisitos:
 			 AZURE_SERVICEBUS_QUEUE_NAME=credito-queue
     2. na classe 'AzureServiceBusConfig' descomentar o método 'serviceBusSenderClient()' para fazer a conexão no serviço;
     3. na classe 'CreditoServiceBusPublisher' descomentar o '@Component' o '@RequiredArgsConstructor';   
-    4. na classe 'CreditoService' descomentar a variável 'serviceBus' e a linha 45 'serviceBus.publicarEvento(event)' caso queira desativar o kafka comentar a linha 44 'kafka.publicarEvento(event);'
-    5. na classe 'KafkaAdminConfig' se quiser desabilitar o kafka comente  o método 'consultaCreditoTopic()'
+    4. na classe 'CreditoService' descomentar a linha 45 'serviceBus.publicarEvento(event)' caso queira desativar o kafka comentar a linha 44 'kafka.publicarEvento(event);'
+    5. na classe 'KafkaAdminConfig' se quiser desabilitar comente o @Configuration e na classe 'CreditoKafkaConsumer' comente o metodo 'consumir(String mensagem)'
        
  
  
